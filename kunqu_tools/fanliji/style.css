@@ -1,0 +1,103 @@
+body{
+	background:#fcf6eb;
+	min-width: 1000px;
+}
+#navigation{
+	margin-left: -10px;
+	margin-top: 70px;
+	float: left;
+	width:20%;
+	text-align: center;
+	font-size: 18px;
+	vertical-align: middle;
+	line-height: 50px;
+}
+a, a:link, a:visited{
+  text-decoration:none;
+  color: #4c2d00;
+}
+
+a:hover{
+color: #9b5b00;
+}
+
+a.nav:link, a.nav:visited{
+	color: black;
+	text-decoration:none;
+}
+a.nav:hover{
+	text-decoration:none;
+	font-size: 20px;
+}
+a.now:link, a.now:visited{
+	color: black;
+	text-decoration:none;
+	font-weight: bold;
+}
+a.now:hover{
+	text-decoration:none;
+	font-weight: bold;
+	font-size: 20px;
+}
+.homepage{
+	background: #edc885;
+	height: 50px;
+	width: 80px;
+}
+.download{
+	text-decoration:none;
+	font-size: 14px;
+	line-height: 30px;
+}
+.kunqu_tools{
+	height: 50px;
+	width: 80px;
+}
+.rusheng{
+	height: 50px;
+	width: 80px;
+	background: #ebfcf6;
+}
+
+.jiantuan{
+	background:#ebf1fc;
+	height: 50px;
+	width: 80px;
+}
+.about{
+	background:#fffcfd;
+	height: 50px;
+	width: 80px;
+}
+
+
+#gui{
+	font-size: 14px;
+	margin-left: -100px;
+	float: left;
+	width: 40%;
+}
+.result{
+	width: 45%;
+	float: left;
+	margin:100px 0px 50px -210px;
+	text-decoration:none;
+	line-height: 30px;
+}
+
+img{
+	text-align: left;
+	margin:0px 10px -6px 100px;
+}
+
+h1{
+	font-size: 28px;
+	text-align: left;
+	margin-bottom: 30px;
+	margin-left: -30px;
+}
+input{
+	font-size: 14px;
+	height : 23px;
+	padding-left: 5px;
+}

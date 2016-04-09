@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+	<script src="/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="_north.js"></script>
+	<script type="text/javascript" src="_south.js"></script>
+	<title>工具-范例集检索</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+<div id="navigation">
+	<div class="homepage">
+		<a class="nav" href="/ch/">首页</a>
+	</div>
+	<div class="kunqu_tools">
+		<a class="now" href="/ch/kunqu_tools/fanliji">工具</a>
+	</div>
+	<div class="rusheng">
+		<a class="nav" href="/ch/rusheng/shici">入声</a>
+	</div>
+	<div class="jiantuan">
+		<a class="nav" href="/ch/jiantuan/jingju">尖团</a>
+	</div>
+	<div class="about">
+		<a class="nav" href="/ch/about/">关于</a>
+	</div>
+</div>
+
+<div id="gui">
+	<h1><img src="logo.png" width="40" height="40">工具-范例集检索</h1>
+
+	<p style="font-size:18px;">请输入：</p>
+
+	<p style="font-size: 18px"><input name="book" type="radio" value="S" checked="checked"/>南套 <input name="book" type="radio" value="N"/>北套<br><p>
+
+	<p style="margin-bottom: 2px;margin-top:-4px;">相关信息，如曲牌名</p>
+	<input type="text" name="userInput" placeholder="目录检索" style="width:120px;" autofocus="focus" onkeydown="if(event.keyCode==13){get_user_input();}">
+	<input type="submit" value="确定" onclick="get_user_input();" >
+	
+	<br><p style="margin:12px;">或</p>
+
+	<p style="margin-bottom: 2px;">页码</p>
+	<input type="text" name="index" placeholder="页码" style="width:120px;" onkeydown="if(event.keyCode==13){get_index();}">
+	<input type="submit" value="确定" onclick="get_index();" >
+
+	<div class="download"><br>
+		《昆曲曲牌及套数范例集》<br>详细目录：<br>
+		<a href="south.txt" target="_blank">南套</a>　
+		<a href="north.txt" target="_blank">北套</a><br>
+		百度网盘下载：<br>
+		<a href="http://pan.baidu.com/s/1o6qKMAu" target="_blank">pan.baidu.com/s/1o6qKMAu<br></a> 
+		密码: ftgi
+	</div>
+
+</div>
+
+<div class="result"></div>
+
+<script>
+var flag=0;
+var get_user_input=function(){
+	$('.result').html("");
+	flag=0;
+	var input=document.getElementsByTagName("input")[2].value;
+	var NS=$("input[name='book']:checked").val();
+	if (NS=='N') {
+		for (var i = 0; i < indexN.length; i++) {
+			for (var j = 0; j < indexN[i].length; j++) {
+				if (indexN[i][j].indexOf(input)>-1) {
+					flag=1;
+					if (indexN[i].length==2) {$('.result').append('<a href="'+NS+'.html?'+indexN[i][(indexN[i].length)-1]+'" target="_blank">'+indexN[i][(indexN[i].length)-2]+'　'+indexN[i][(indexN[i].length)-1]+"</a><br>");}
+					else if (indexN[i].length==3) {$('.result').append('<a href="'+NS+'.html?'+indexN[i][(indexN[i].length)-1]+'" target="_blank">'+indexN[i][(indexN[i].length)-3]+'　'+indexN[i][(indexN[i].length)-2]+'　'+indexN[i][(indexN[i].length)-1]+"</a><br>");}
+				}
+			}
+		}
+	}
+	else{
+		for (var i = 0; i < indexS.length; i++) {
+			for (var j = 0; j < indexS[i].length; j++) {
+				if (indexS[i][j].indexOf(input)>-1) {
+					flag=1;
+					if (indexS[i].length==2) {$('.result').append('<a href="'+NS+'.html?'+indexS[i][(indexS[i].length)-1]+'" target="_blank">'+indexS[i][(indexS[i].length)-2]+'　'+indexS[i][(indexS[i].length)-1]+"</a><br>");}
+					else if (indexS[i].length==3) {$('.result').append('<a href="'+NS+'.html?'+indexS[i][(indexS[i].length)-1]+'" target="_blank">'+indexS[i][(indexS[i].length)-3]+'　'+indexS[i][(indexS[i].length)-2]+'　'+indexS[i][(indexS[i].length)-1]+"</a><br>");}
+				}
+			}
+		}
+	}
+	if (flag==0) {
+		alert("找不到相关内容！");
+		return;
+	};
+}
+var get_index=function(){
+	var input=document.getElementsByTagName("input")[4].value;
+	var NS=$("input[name='book']:checked").val();
+	for (var i = 0; i < input.length; i++) {
+		if (input[i]<'0' || input[i]>'9') {
+			if(i==0 && input[i]=='-'){
+				continue;
+			}
+			else{
+				alert("页码必须由纯数字组成！");
+				return;
+			}
+		}
+	}
+	var num = new Number(input);
+	if (NS=='N') {
+		if (num<-24 ||num>1376) {
+			alert("该数字不在页码范围内，请检查修正！");
+			return;
+		}
+	}
+	else{
+		if (num<-23 ||num>1721) {
+			alert("该数字不在页码范围内，请检查修正！");
+			return;
+		}
+	}
+	window.open(NS+".html?"+input);
+}
+</script>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</body>

@@ -1,0 +1,128 @@
+body{
+	background:#E9F1F6;/*霜色*/
+	min-width: 800px;
+}
+#navigation{
+	margin-left: -10px;
+	margin-top: 70px;
+	float: left;
+	width:15%;
+	text-align: center;
+	font-size: 18px;
+	vertical-align: middle;
+	line-height: 50px;
+}
+a.nav:link, a.nav:visited{
+	color: black;
+	text-decoration:none;
+}
+a.nav:hover{
+	text-decoration:none;
+	font-size: 20px;
+}
+a.now:link, a.now:visited{
+	color: black;
+	text-decoration:none;
+	font-weight: bold;
+}
+a.now:hover{
+	text-decoration:none;
+	font-weight: bold;
+	font-size: 20px;
+}
+.homepage{
+	background: #a3c5da;
+	height: 50px;
+	width: 80px;
+
+}
+.kunqu_tools{
+	background:#dbf0e3;
+	height: 50px;
+	width: 80px;
+}
+.rusheng{
+	background:#dbf0e3;
+	height: 50px;
+	width: 80px;
+}
+
+.jiantuan{
+	margin-left: -10px;
+	height: 50px;
+	width: 80px;
+}
+.sub{
+	text-align: left;
+	margin: -10px 0 0px 30px;
+	line-height: 25px;
+	height: 60px;
+}
+.kunqu_tools{
+	background:#f6e9f1;
+	height: 50px;
+	width: 80px;
+}
+.about{
+	background:#fcf9f7;
+	height: 50px;
+	width: 80px;
+
+}
+
+
+#gui{
+	margin-left: -100px;
+	text-align: center;
+	float: left;
+	width: 70%;
+}
+
+img{
+	text-align: left;
+	margin:0px 10px -6px 100px;
+}
+
+h1{
+	font-size: 28px;
+	text-align: left;
+	margin-bottom: 100px;
+	margin-left: 20px;
+}
+button{
+	color:white;
+	background:#b1cedf;
+	border:solid;
+	border-color: #b1cedf;
+	margin-left: 5px;
+	font-size: 14px;
+}
+input{
+	font-size: 14px;
+	height : 23px;
+	padding-left: 5px;
+	margin-bottom: 8px;
+}
+.example{
+	margin: 0 auto;
+	width: 250px;
+	height: 300px;
+	padding-top: 30px;
+	font-size: 20px;
+}
+
+#sidebar{
+	margin-left: 40px;
+	float: left;
+	width:15%;
+	text-align: left;
+	padding-top: 100px;
+	height: 500px;
+	font-weight: bold;
+}
+a.side{
+	padding-left: 20px;
+	text-decoration:none;
+	color: #305b75;
+	font-weight: normal;
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<head>
+	<script src="/jquery-1.11.2.min.js"></script>
+	<title>范例集-南套</title>
+</head>
+<body>
+<div class="nav"></div>
+<div class="pic"></div>
+<div class="nav"></div>
+<script>
+var query = new Number(window.location.search.substring(1));
+$('.pic').html('<img src="S/'+query+'.gif" width="1000">');
+$('.nav').append('<a href="S.html?'+(query-1).toString()+'">上一页</a>');
+$('.nav').append('　　<a href="S.html?'+(query+1).toString()+'">下一页</a>');
+</script>
+</body>

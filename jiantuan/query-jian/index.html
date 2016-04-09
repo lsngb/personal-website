@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+	<script src="/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="elements.js"></script>
+	<script type="text/javascript" src="multi.js"></script>
+	<title>尖团-查询</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+<div id="navigation">
+	<div class="homepage">
+		<a class="nav" href="/ch/">首页</a>
+	</div>
+	<div class="jiantuan">
+		<a class="now" href="/ch/jiantuan">尖团</a><br>
+	</div>
+	<div class='sub'>
+		<a class="nav" href="/ch/jiantuan/jingju">京剧</a><br>
+		<a class="nav" href="/ch/jiantuan/query-jian">查询</a><br>
+	</div>
+	<div class="rusheng">
+		<a class="nav" href="/ch/rusheng/shici">入声</a>
+	</div>
+	<div class="kunqu_tools">
+		<a class="nav" href="/ch/kunqu_tools/fanliji">工具</a>
+	</div>
+	<div class="about">
+		<a class="nav" href="/ch/about/">关于</a>
+	</div>
+</div>
+
+<div id="gui">
+	<h1><img src="logo.png" width="40" height="40">尖团-查询</h1>
+	<p><span style='color:red;font-weight:bold;'>红色</span>字体为尖字。<span style='color:#4B5CC4;font-weight:bold;'>蓝色</span>字体为多音字，请自行判断。<br>最多输入三百个字符。更多说明见侧边栏链接。</p>
+	<textarea wrap="on" name="query"  autofocus="focus" style="height:80px;width:350px;line-height: 16px;font-size: 16px;"></textarea><br>
+	<button onclick="get_user_input();">提交</button>
+
+	<div class="result"></div>
+	<div class="empty"></div>
+</div>
+
+
+<div id="sidebar">
+	参考资料来源：<br><br><a class="side" href="http://www.zdic.net/" target="_blank">汉典</a><br>
+	<a class="side" href="http://ytenx.org/" target="_blank">韵典网</a><br><br>
+	反馈：<br><a class="side" href="http://weibo.com/message/history?uid=1344082573" target="_blank">微博</a><br>
+	<a class="side" href="mailto:mail@messyxin.com" target="_blank">邮件</a><br>
+	<a class="side" href="http://www.douban.com/doumail/16932498/" target="_blank">豆瓣</a><br>
+	关于：<br><a class="side" href="about.html" target="_blank">说明</a><br>
+	<a class="side" href="log.html" target="_blank">更新日志</a><br>
+	书签：<br><a class="side" href="http://www.zdic.net/" target="_blank">汉典</a><br>
+	<a class="side" href="http://yedict.com/" target="_blank">字海</a><br>
+	<a class="side" href="http://xikao.com/" target="_blank">戏考</a><br>
+	<a class="side" href="http://sou-yun.com/" target="_blank">搜韵网</a><br>
+	<a class="side" href="http://ytenx.org/" target="_blank">韵典网</a><br>
+	<a class="side" href="http://bbs.gxsd.com.cn/" target="_blank">国学数典论坛</a><br>
+</div>
+<script>
+$(function() {$('[autofocus]').focus()});
+var multi_chars=[];
+var jian_chars=[];
+var get_user_input=function(){
+	var input=$('textarea').val();
+	if (input.length>300) {alert("最多输入三百个字符！");return;}
+	input=input.replace(new RegExp("\n",'g'),"<br>");
+	for (var i = 0; i < input.length; i++) {
+		if(multi.indexOf(input[i])>-1){
+			if (multi_chars.indexOf(input[i])==-1) {
+				multi_chars.push(input[i]);
+			}
+		}
+		else if (elements.indexOf(input[i])>-1) {
+			if (jian_chars.indexOf(input[i])==-1) {
+				jian_chars.push(input[i]);
+			}
+		}
+	}
+
+	for (var i = 0; i < jian_chars.length; i++) {
+		if (multi_chars.indexOf(jian_chars[i])==-1) {input=input.replace(new RegExp(jian_chars[i], 'g'),"<span style='color:red'>"+jian_chars[i]+"</span>")}
+	}
+	for (var i = 0; i < multi_chars.length; i++) {
+		input=input.replace(new RegExp(multi_chars[i], 'g'),"<span style='color:#4B5CC4'>"+multi_chars[i]+"</span>")
+	}
+	$('.result').html(input);
+}
+</script>
+</body>
